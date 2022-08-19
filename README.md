@@ -10,7 +10,7 @@ git clone git@github.com:jamesesguerra/psn_scraper.git
 
 Change dir:
 ```sh
-cd article_scraper
+cd psn_scraper
 ```
 
 Making a virtual env:
