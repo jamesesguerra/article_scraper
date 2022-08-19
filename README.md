@@ -5,7 +5,7 @@
 
 Cloning the repo:
 ```sh
-git clone 
+git clone git@github.com:jamesesguerra/psn_scraper.git
 ```
 
 Change dir:
