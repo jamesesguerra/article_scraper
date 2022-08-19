@@ -27,20 +27,19 @@ Installing Scrapy:
 pip install scrapy
 ```
 
-Change dir:
+Change dirs:
 ```sh
-cd psn_scraper
+cd psn_scraper && article_scraper
 ```
 
 ### usage
 ----
 
-Cd into `article_scraper`:
-```sh
-cd article_scraper
-```
-
-Run `main.py`:
+Run `main.py` and enter # of pages:
 ```sh
 python main.py
 ```
+
+* CSV files are placed inside `psn_scraper/csv_files/`
+
+
