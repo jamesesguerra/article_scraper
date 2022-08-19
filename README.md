@@ -8,11 +8,6 @@ Cloning the repo:
 git clone git@github.com:jamesesguerra/psn_scraper.git
 ```
 
-Change dir:
-```sh
-cd psn_scraper
-```
-
 Making a virtual env:
 ```sh
 python -m venv venv
@@ -30,6 +25,11 @@ source venv/bin/activate
 Installing Scrapy:
 ```sh
 pip install scrapy
+```
+
+Change dir:
+```sh
+cd psn_scraper
 ```
 
 ### usage
