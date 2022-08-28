@@ -24,7 +24,7 @@ source venv/bin/activate
 
 Installing dependencies:
 ```sh
-pip install -r requirements.txt
+pip install -r article_scraper/requirements.txt
 ```
 
 Change dirs:
