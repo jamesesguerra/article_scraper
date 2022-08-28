@@ -1,11 +1,11 @@
-# psn scraper
+# article scraper
 
 ### Setting up
 ----
 
 Cloning the repo:
 ```sh
-git clone git@github.com:jamesesguerra/psn_scraper.git
+git clone git@github.com:jamesesguerra/article_scraper.git
 ```
 
 Making a virtual env:
@@ -18,28 +18,40 @@ Activating the env:
 # windows
 \venv\Scripts\activate
 
-#unix
+# unix
 source venv/bin/activate
 ```
 
-Installing Scrapy:
+Installing dependencies:
 ```sh
-pip install scrapy
+pip install -r requirements.txt
 ```
 
 Change dirs:
 ```sh
-cd psn_scraper && article_scraper
+cd article_scraper && article_scraper
 ```
 
-### usage
+### Usage
 ----
 
-Run `main.py` and enter # of pages:
+Run `main.py` and enter company name:
 ```sh
 python main.py
 ```
 
-* CSV files are placed inside `psn_scraper/csv_files/`
+\* CSV files are placed inside `article_scraper/csv_files/`
+
+### Combining CSV files
+---
+
+Run `combine_csv.py` in `article_scraper/`:
+```sh
+# article_scraper/
+
+python combine_csv.py
+```
+
+This combines all the CSV files in `article_scraper/csv_files` into one CSV file named `combined_csv.csv`.
 
 

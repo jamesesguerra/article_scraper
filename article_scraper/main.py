@@ -1,8 +1,12 @@
-import os
+from psn import run_psn
 
 
-def run():
-    pages = input('Enter number of pages to fetch: ')
-    os.system(f"source ../scripts/psn.sh {pages}")
+def main():
+    company = input('Enter company name (psn): ').lower()
+    print('')
 
-run()
+    match company:
+        case 'psn':
+            run_psn()
+
+main()

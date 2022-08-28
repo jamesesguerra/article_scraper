@@ -2,8 +2,8 @@ import scrapy
 
 
 class PSNSpider(scrapy.Spider):
-    name = 'psn'
-    start_urls = ['https://www.philstar.com/micro_page.php?qcount=1&micro=77&page=4&cell=2&lastid=2203303']
+    name = 'metro'
+    start_urls = ['https://www.philstar.com/micro_page.php?qcount=1&micro=103&page=1&cell=2&lastid=2205206']
 
 
     def __init__(self, pages='', **kwargs):
