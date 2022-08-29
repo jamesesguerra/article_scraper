@@ -36,6 +36,11 @@ cd article_scraper && article_scraper
 ----
 
 Run `main.py` and enter company name:
+
+Choices: 
+- Pilipino Star Ngayon
+- ABS-CBN News
+- GMA Network (Balitambayan)
 ```sh
 python main.py
 ```
