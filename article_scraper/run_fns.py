@@ -29,7 +29,5 @@ def run_abs():
     os.system('scrapy crawl abs-cbn -O ../csv_files/abs_cbn.csv')
 
 
-def run_gma():
-    print('* Current limit of pages to fetch: 102')
-    pages = input('Enter number of pages to fetch (50 articles per page): ')
+def run_gma(pages):
     os.system(f'scrapy crawl gma -a pages={pages} -O ../csv_files/gma.csv')

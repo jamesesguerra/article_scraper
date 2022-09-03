@@ -27,9 +27,16 @@ class ABSSpider(scrapy.Spider):
 
 
     def parse_articles(self, response):
+        summary = response.css('div.article-body p:first-of-type::text').get()
+
+        i = 2
+        while summary == ' ' or summary == ' \xa0':
+            summary = response.css(f"div.article-body p:nth-of-type({i})::text").get()
+
         yield {
             'title': response.css('h1::text').get(),
-            'article_text': response.css('div.article-body p::text').getall(),
+            'article_text': ' '.join(response.css('div.article-body p::text').getall()).strip(),
+            'summary': summary,
             'article_date': response.css('div.article-date::text').get().strip(),
             'source': response.request.url
         }
