@@ -1,27 +1,17 @@
 import os
 
 
-def run_psn():
-    categories = ['Bansa', 'Metro', 'Probinsya', 'Opinyon', 'Palaro']
-
-    for i in range(len(categories)):
-        print(f"{categories[i]} [{i}]")
-    
-    print('')
-    category = int(input('Enter category number: '))
-    print('')
-    pages = input('Enter number of pages to fetch (5 articles per page): ')
-
+def run_psn(category, pages):
     match category:
-        case 0:
+        case 'Bansa':
             os.system(f'scrapy crawl bansa -a pages={pages} -O ../csv_files/psn_bansa.csv')
-        case 1:
+        case 'Metro':
             os.system(f'scrapy crawl metro -a pages={pages} -O ../csv_files/psn_metro.csv')
-        case 2:
+        case 'Probinsya':
             os.system(f'scrapy crawl probinsya -a pages={pages} -O ../csv_files/psn_probinsya.csv')
-        case 3:
+        case 'Opinyon':
             os.system(f'scrapy crawl opinyon -a pages={pages} -O ../csv_files/psn_opinyon.csv')
-        case 4:
+        case 'Palaro':
             os.system(f'scrapy crawl palaro -a pages={pages} -O ../csv_files/psn_palaro.csv')
 
 
