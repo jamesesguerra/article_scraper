@@ -10,7 +10,7 @@ def run_psn():
     print('')
     category = int(input('Enter category number: '))
     print('')
-    pages = input('Enter number of pages to fetch (5 articles per page): ')
+    pages = input('Enter number of pages to fetch (≈ 5 articles per page): ')
 
     match category:
         case 0:

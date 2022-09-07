@@ -1,5 +1,7 @@
-import re
-
 def clean(txt):
-    txt = re.sub(r'([\w,\s]*)—', '', txt)
+    try:
+        idx = txt.index('—')
+        txt = txt[idx+1::].strip()
+    except:
+        pass
     return txt

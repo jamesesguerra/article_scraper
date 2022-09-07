@@ -28,8 +28,8 @@ class PSNSpider(scrapy.Spider):
     def parse_articles(self, response):
         yield {
             'title': response.css('.article__title h1::text').get(),
-            'article_text': clean(' '.join(response.css('.article__writeup p::text').getall())).strip(),
-            'summary': clean(response.css('.article__writeup p:first-of-type::text').get()).strip(),
+            'article_text': clean(' '.join(response.css('.article__writeup p *::text').getall())).strip(),
+            'summary': clean(' '.join(response.css(".article__writeup > p:first-child *::text").getall())).strip(),
             'article_date': response.css('.article__date-published::text').get().replace('|', ''),
             'source': response.request.url
         }
