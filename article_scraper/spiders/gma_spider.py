@@ -1,8 +1,9 @@
 import scrapy
 import json
+from ..utils import normalizer
 
 
-class ABSSpider(scrapy.Spider):
+class GMASpider(scrapy.Spider):
     name = 'gma'
     start_urls = ['https://data2.gmanews.tv/gno/widgets/grid_reverse_listing/story_btbbalita/1']
 
@@ -22,17 +23,18 @@ class ABSSpider(scrapy.Spider):
         self.count += 1
 
         if self.count <= int(self.pages):
-            next_page = f"https://data2.gmanews.tv/gno/widgets/grid_reverse_listing/story_btbbalita/{self.pages}"
+            next_page = f"https://data2.gmanews.tv/gno/widgets/grid_reverse_listing/story_btbbalita/{self.count}"
             yield response.follow(next_page, callback=self.parse)
 
 
     def parse_articles(self, response):
-        # init_summary = ''.join(response.css('div.article-body > p:first-child *::text').getall())
-        # summary = init_summary if init_summary != ' ' else ' '.join(response.css('div.article-body > p:nth-of-type(2) *::text').getall()).strip()
+        init_summary = normalizer.normalize_txt(''.join(response.css('div.article-body > p:first-child *::text').getall())).strip()
+        summary = init_summary if init_summary else ' '.join(response.css('div.article-body > p:nth-of-type(2) *::text').getall()).strip()
 
         yield {
             'title': response.css('h1::text').get(),
             'article_text': ' '.join(response.css('div.article-body p::text').getall()).strip(),
+            'summary': summary,
             'article_date': response.css('div.article-date::text').get().strip(),
             'source': response.request.url
         }
