@@ -1,3 +1,4 @@
+from ..utils.placeRemover import clean
 import scrapy
 from urllib import parse
 
@@ -29,7 +30,8 @@ class ABSSpider(scrapy.Spider):
     def parse_articles(self, response):
         yield {
             'title': response.css('h1.news-title::text').get(),
-            'article_text': response.css('div.article-content p::text').getall(),
+            'article_text': ' '.join(response.css('div.article-content p::text').getall()),
+            'summary': clean(response.css(".article-content > p::text").get()).strip(),
             'article_date': response.css('span.date-posted::text').get(),
             'source': response.request.url
         }

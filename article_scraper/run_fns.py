@@ -10,7 +10,7 @@ def run_psn():
     print('')
     category = int(input('Enter category number: '))
     print('')
-    pages = input('Enter number of pages to fetch (≈ 5 articles per page): ')
+    pages = input('Enter number of pages to fetch (≈5 articles per page): ')
 
     match category:
         case 0:
@@ -30,6 +30,10 @@ def run_abs():
 
 
 def run_gma():
-    print('* Current limit of pages to fetch: 102')
+    print('* Current limit of # of pages to fetch: 103')
     pages = input('Enter number of pages to fetch (50 articles per page): ')
     os.system(f'scrapy crawl gma -a pages={pages} -O ../csv_files/gma.csv')
+
+
+def run_kami():
+    os.system("scrapy crawl kami -O ../csv_files/kami.csv")
