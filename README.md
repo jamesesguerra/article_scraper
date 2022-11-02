@@ -41,6 +41,7 @@ Choices:
 - Pilipino Star Ngayon [0]
 - ABS-CBN News [1]
 - GMA Network (Balitambayan) [2]
+- KAMI [3]
 ```sh
 python main.py
 ```
