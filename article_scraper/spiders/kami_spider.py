@@ -1,7 +1,9 @@
+import scrapy
+from langdetect import detect
+
 from ..utils.dash_remover import clean
 from ..utils.noise_word_remover import remove
 from ..utils.highlights_remover import remove_highlights
-import scrapy
 
 
 class KamiSpider(scrapy.Spider):
@@ -26,15 +28,19 @@ class KamiSpider(scrapy.Spider):
         article_text = remove(response.css("div.post__content p *::text").getall())
 
         cleaned_article_text = remove_highlights(bold_text, article_text)
+        article_text = ' '.join(cleaned_article_text).strip()
 
         # for summary
         highlights = list(filter(lambda x: x.startswith("-"), response.css('strong::text').getall()))
         cleaned_highlights = list(map(clean, highlights))
+        summary = '.'.join(cleaned_highlights).strip()
 
-        yield {
-            'title': response.css("h1.c-main-headline::text").get(),
-            'article_text': ' '.join(cleaned_article_text).strip(),
-            'summary': '.'.join(cleaned_highlights).strip(),
-            'article_date': response.css("time::text").get(),
-            'source': response.request.url
-        }
+
+        if detect(summary) != "en":
+            yield {
+                'title': response.css("h1.c-main-headline::text").get(),
+                'article_text': article_text,
+                'summary': summary,
+                'article_date': response.css("time::text").get(),
+                'source': response.request.url
+            }

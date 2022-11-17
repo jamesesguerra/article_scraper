@@ -10,6 +10,10 @@ def remove(article_text):
         "Facebook posts",
         "to support the KAMI team! Share your thoughts in the comments. We love reading them!",
         "Click", '"See First" under the "Following" tab to see KAMI news on your News Feed',
+        'Click "See First" under the "Following" tab to see KAMI news on your News Feed',
+        'Click "See first" under the "Following" tab to see KAMI news on your Newsfeed',
+        'Click "See First" under the "Following" tab to see KAMI news on your News Feed!',
+        'Click "See First" under the "Following" tab to see',
         "Tingnan ang mga balitang para sa'yo ➡️ hanapin ang \"Recommended for you\" block at mag-enjoy!",
         "Update KAMI App now: the old version will be disabled on June, 15!"
     ]
